@@ -23,6 +23,11 @@ from titanic_utils.transformers import (
 )
 
 def train(model_name: str):
+    """_summary_
+
+    Args:
+        train (str): _description_
+    """
     numeric_transformer = Pipeline(
         steps=[
             ("missing_indicator", MissingIndicator(config.NUMERICAL_VARS)),
