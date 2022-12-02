@@ -11,7 +11,7 @@ titanic_delegate = TitanicPipe()
 
 @app.get('/')
 def home():
-    return {'text': 'Titanic Survival Prediction'}
+    return {'text': 'App Titanic Survival Prediction'}
 
 @app.post('/predict')
 def predict(response : titanic_apputils.response = Depends(titanic_delegate.predict) ):
