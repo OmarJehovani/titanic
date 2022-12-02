@@ -72,15 +72,17 @@ def train(model_name: str):
         random_state=config.SEED_SPLIT,
     )
     titanic_pipeline.fit(X_train, y_train)
+
     preds = titanic_pipeline.predict(X_test)
     accuracy = (preds == y_test).sum() / len(y_test)
     print(f"Accuracy of the model is {accuracy}")
 
     # now = datetime.now()
     # date_time = now.strftime("%Y_%d_%m_%H%M%S")
-    filename = f"{config.MODEL_NAME}"
+    filename = f"{config.PATH_MODEL}"
+
     print(f"Model stored in models as {filename}")
-    joblib.dump(titanic_pipeline, f"{config.MODEL_NAME}")
+    joblib.dump(titanic_pipeline, f"{config.PATH_MODEL}")
 
 
 if __name__ == "__main__":
