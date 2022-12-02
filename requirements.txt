@@ -7,4 +7,6 @@ fastapi
 joblib
 pydantic
 uvicorn
+
+#certifi para el certificado que requiere la mac
 certifi 
