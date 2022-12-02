@@ -2,6 +2,8 @@ import joblib
 import pandas as pd
 import titanic_const
 import titanic_apputils
+#import transformers 
+#import utils  
 from sklearn.pipeline import Pipeline
 
 class TitanicPipe:
