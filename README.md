@@ -26,7 +26,7 @@ Proyecto para el entregable del módulo 3 del diplomado en Despliegue de Modelos
 * uvicorn titanic_app:app  --reload
 
 * Copiar este bloque para hacer el request: 
-''' 
+```
 {
     "pclass": 1,
     "name": "Allen, Miss. Elisabeth Walton",
@@ -42,4 +42,4 @@ Proyecto para el entregable del módulo 3 del diplomado en Despliegue de Modelos
     "body": "?",
     "home_dest": "St Louis, MO"
 }
-''' 
+``` 
