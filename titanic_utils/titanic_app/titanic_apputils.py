@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 class requestParameters(BaseModel):
-    """this class validate the parameters with pydantic"""
+    """parameters for predictions"""
     pclass: int
     name: str
     sex: str
@@ -17,6 +17,6 @@ class requestParameters(BaseModel):
 
 
 class response(BaseModel):
-    """this class validate the response with pydantic"""
+    """parameters with prediction info"""
     prediction: int
     message: str

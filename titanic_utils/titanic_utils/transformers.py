@@ -9,6 +9,13 @@ from sklearn.preprocessing import MinMaxScaler as MMScaler
 from titanic_utils import utils
 
 class CleaningTransformer(BaseEstimator, TransformerMixin):
+    """
+    clean and transform data
+
+    Args:
+        BaseEstimator (BaseEstimator): inherited class
+        TransformerMixin (TransformerMixin): inherited class
+    """
     def __init__(self):
         self.feature_names_out = []
 
@@ -17,6 +24,16 @@ class CleaningTransformer(BaseEstimator, TransformerMixin):
         return self
 
     def transform(self, df: pd.DataFrame, y=0):
+        """
+        Transform data types 
+
+        Args:
+            df (pd.DataFrame): data
+            y (int, optional): Target. Defaults to 0.
+
+        Returns:
+            df: DataFrame
+        """
         df.replace("?", np.nan, inplace=True)
         df["age"] = df["age"].astype("float")
         df["fare"] = df["fare"].astype("float")

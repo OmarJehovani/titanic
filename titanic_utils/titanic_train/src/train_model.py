@@ -23,10 +23,11 @@ from titanic_utils.transformers import (
 )
 
 def train(model_name: str):
-    """_summary_
+    """
+    Train a model
 
     Args:
-        train (str): _description_
+        model_name (str): name of the model
     """
     numeric_transformer = Pipeline(
         steps=[
@@ -35,6 +36,7 @@ def train(model_name: str):
         ]
     )
     categorical_transformer = Pipeline(
+    """ transform the categorical variables and applies One Hot Encoder"""
         steps=[
             ("cabin_only_letter", CabinOnlyLetter("cabin")),
             ("categorical_imputer", CategoricalImputerEncoder(config.CATEGORICAL_VARS)),
@@ -71,6 +73,7 @@ def train(model_name: str):
     titanic_pipeline = Pipeline(
         [("preprocessor", preprocessor), (f"{model_name}_regressor", regressor)]
     )
+    
     df = pd.read_csv(config.URL).drop(columns="home.dest")
     X_train, X_test, y_train, y_test = train_test_split(
         df.drop(config.TARGET, axis=1),
@@ -78,6 +81,7 @@ def train(model_name: str):
         test_size=0.2,
         random_state=config.SEED_SPLIT,
     )
+    
     titanic_pipeline.fit(X_train, y_train)
 
     preds = titanic_pipeline.predict(X_test)
