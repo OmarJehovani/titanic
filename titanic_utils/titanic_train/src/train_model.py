@@ -35,8 +35,8 @@ def train(model_name: str):
             ("median_imputation", NumericalImputesEncoder(config.NUMERICAL_VARS)),
         ]
     )
+    
     categorical_transformer = Pipeline(
-    """ transform the categorical variables and applies One Hot Encoder"""
         steps=[
             ("cabin_only_letter", CabinOnlyLetter("cabin")),
             ("categorical_imputer", CategoricalImputerEncoder(config.CATEGORICAL_VARS)),

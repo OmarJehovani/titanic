@@ -10,6 +10,7 @@ URL = urlopen(request, context=ssl.create_default_context(cafile=certifi.where()
 BASE_DIR = os.path.realpath(os.path.join(os.path.dirname(__file__), ".."))
 ROOT_DIR = os.path.realpath(os.path.join(BASE_DIR, ".."))
 PATH_MODEL = os.path.realpath(os.path.join(ROOT_DIR, "titanic_train/models", "model.sav"))
+LOG_DIR = os.path.realpath(os.path.join(BASE_DIR, "logs")) 
 
 SEED_SPLIT = 404
 SEED_MODEL = 404

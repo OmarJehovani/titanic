@@ -1,3 +1,5 @@
+from logging import config
+import logging
 import joblib
 import pandas as pd
 import titanic_const
@@ -5,6 +7,7 @@ import titanic_apputils
 from titanic_utils import * 
  
 from sklearn.pipeline import Pipeline
+
 
 class TitanicPipe:
 
