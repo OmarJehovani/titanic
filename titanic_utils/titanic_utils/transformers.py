@@ -163,10 +163,11 @@ class NumericalImputesEncoder(BaseEstimator, TransformerMixin):
 
 
 class CategoricalImputerEncoder(BaseEstimator, TransformerMixin):
-    """Función que reemplaza los valores nulos de una columna
+    """ 
+    Class that replaces null values ​​in a column
     Args:
-        BaseEstimator (BaseEstimator): Clase heredada
-        TransformerMixin (TransformerMixin): Clase heredada
+        BaseEstimator (BaseEstimator): inherited class
+        TransformerMixin (TransformerMixin): inherited class
     """
 
     def __init__(self, variables: List[str]):
@@ -174,10 +175,28 @@ class CategoricalImputerEncoder(BaseEstimator, TransformerMixin):
         self.feature_names_out = []
 
     def fit(self, X: pd.DataFrame, y=0):
+        """
+        Function to train the model
+        Args:
+            X (pd.DataFrame): train data
+            y (int, optional): tarjet. Defaults to 0.
+
+        Returns:
+            trained data
+        """
         self.feature_names_out = X.columns
         return self
 
     def transform(self, X: pd.DataFrame, y=0):
+        """Transform the data
+
+        Args:
+            X (pd.DataFrame): train data
+            y (int, optional): tarjet. Defaults to 0.
+
+        Returns:
+            transformed data
+        """
         X[self.variables] = X[self.variables].fillna("missing")
         return X
 
